@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repo') {
             steps {
-                checkout scm
+                git branch: 'main',
+                url: 'https://github.com/KrishnaSilver-eng/devops-docker-app.git'
             }
         }
 
@@ -14,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Deploy Container') {
             steps {
                 sh '''
                 docker rm -f devops-docker-app || true
