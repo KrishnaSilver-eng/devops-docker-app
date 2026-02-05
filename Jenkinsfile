@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/KrishnaSilver-eng/devops-docker-app.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t devops-docker-app .'
